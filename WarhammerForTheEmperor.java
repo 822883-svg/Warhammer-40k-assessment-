@@ -90,7 +90,18 @@ class MainMenuPanel extends JPanel {
         MarinePassKey.setBounds(480, 670, 100, 60);
         add(MarinePassKey); 
 
-        playButton.addActionListener(e -> frame.startGame());
+        playButton.addActionListener(e -> {
+        String name = MarineUser.getText().trim();
+        String pass = MarinePassKey.getText().trim(); 
+
+        if(name.isEmpty() || pass.isEmpty()){
+        JOptionPane.showMessageDialogue(
+            this, "WORTHLESS HERETIC", "ACCESS DENIED", JOptionPane.ERROR_MESSAGDE);
+            );// if ends here 
+            return;   
+        } // if curly brackets ends here             
+       frame.startGame();
+    }); // playbutton ends here 
     }
 }
 
